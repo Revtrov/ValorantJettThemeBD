@@ -1,0 +1,518 @@
+/**
+ * @name Valorant Jett
+ * @author Revtrov
+ * @version 3.0.0
+ * @description A valorant theme with the agent jett
+ */
+
+
+/* Credits to Zerthox for making the original theme. */
+
+
+/* IMPORT CSS */
+
+@import url(https://clearvision.gitlab.io/v6/main.css);
+
+/* SETTINGS */
+
+:root {
+    /* ACCENT COLORS */
+    --main-color: #e73a51;
+    /* main accent color (hex, rgb or hsl) [default: #2780e6] */
+    --hover-color: #982929;
+    /* hover accent color (hex, rgb or hsl) [default: #1e63b3] */
+    --success-color: #43b581;
+    /* success accent color (hex, rgb or hsl) [default: #43b581] */
+    --danger-color: #982929;
+    /* danger accent color (hex, rgb or hsl) [default: #982929] */
+    /* Customization Patch */
+    --channel-unread: var(--main-color);
+    /* Unread Server channel color. [default:  var(--main-color)] THIS OVERRIDES YOUR MAIN COLOR*/
+    --channel-color: rgba(255, 255, 255, 0.3);
+    /*Read Server channel color  [default: rgba(255,255,255,0.3);]*/
+    --channel-text-selected: rgba(255, 255, 255, 0.8);
+    /* Selected channel text color, CV default is #fff */
+    --muted-color: rgba(255, 255, 255, 0.1);
+    /*Muted channel color  [default: rgba(255,255,255,0.1);]*/
+    --url-color: #212121;
+    /*The color of url links [default: var(--main-color)]*/
+    /* STATUS COLORS */
+    --online-color: #43b581;
+    /* online status color (hex, rgb or hsl) [default: #43b581] */
+    --idle-color: #faa61a;
+    /* idle status color (hex, rgb or hsl) [default: #faa61a] */
+    --dnd-color: #982929;
+    /* dnd status color (hex, rgb or hsl) [default: #982929] */
+    --streaming-color: #593695;
+    /* streaming status color (hex, rgb or hsl) [default: #593695] */
+    --offline-color: #808080;
+    /* offline/invisible status color (hex, rgb or hsl) [default: #808080] */
+    /* GENERAL */
+    --main-font: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+    /* main font for app (font must be installed) [default: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif] */
+    --code-font: Consolas, Liberation Mono, Menlo, Courier, monospace;
+    /* font for codeblocks (font must be installed) [default: Consolas, Liberation Mono, Menlo, Courier, monospace] */
+    --text-normal: rgb(220, 221, 222);
+    /* color of default discord text */
+    --text-muted: rgb(114, 118, 125);
+    /* color of default discord muted text (e.g.text found in input fields before typing).*/
+    --channels-width: 220px;
+    /* channel list width (240px for Discord default) [default: 220px] */
+    --members-width: 240px;
+    /* member list width [default: 240px] */
+    --avatar-roundness: 50%;
+    /* avatar roundness (0% for squares, 50% for circles) [default: 50%] */
+    /* APP BACKGROUND */
+    --background-shading: 40%;
+    /* app background shading (0 for complete smoothness) [default: 100%] */
+    /*pink rgba(255, 0, 191, 0.1)*/
+    --background-overlay: rgba(148, 1, 1, 0.15);
+    /* app background overlay color/gradient [default: rgba(0, 0, 0, 0.6)] */
+    --background-image: url("https://github.com/Revtrov/images/blob/main/jett-valorant-4k_1598657377.jpg?raw=true");
+    /*
+    --background-image: url("https://github.com/Revtrov/images/blob/main/valorant-wallpaper-4k-scaled.jpg?raw=true");
+    */
+    /*--background-image: url("https://miro.medium.com/max/4478/1*9QISaZZ3cIJrVBMiS-2tQw.jpeg");*/
+    /* app background image (link must be HTTPS) [default: url(https://clearvision.gitlab.io/images/sapphire.jpg)]*/
+    --background-position: center;
+    /* app background position [default: center] */
+    --background-size: cover;
+    /* app background size [default: cover] */
+    --background-repeat: no-repeat;
+    /* app background repeat [default: no-repeat] */
+    --background-attachment: fixed;
+    /* app background attachment [default: fixed] */
+    --background-brightness: 90%;
+    /* app background brightness (< 100% for darken, > 100% for lighten) [default: 100%] */
+    --background-contrast: 100%;
+    /* app background contrast [default: 100%] */
+    --background-saturation: 100%;
+    /* app background saturation [default: 100%] */
+    --background-invert: 0%;
+    /* app background invert (0 - 100%)  [default: 0%] */
+    --background-grayscale: 0%;
+    /* app background grayscale ( 0 - 100%) [default: 0%] */
+    --background-sepia: 0%;
+    /* app background sepia (0 - 100%) [default: 0%] */
+    --background-blur: 0px;
+    /* app background blur [default: 0px] */
+    /* HOME BUTTON ICON */
+    --home-icon: url(https://clearvision.gitlab.io/icons/discord.svg);
+    /* home button icon (link must be HTTPS) [default: url(https://clearvision.gitlab.io/icons/discord.svg)]*/
+    --home-position: center;
+    /* home button icon position [default: center] */
+    --home-size: 40px;
+    /* home button icon size [default: 40px] */
+    /* MODAL BACKDROP */
+    --backdrop-overlay: rgba(0, 0, 0, 0.8);
+    /* modal backdrop overlay color/gradient [default: rgba(0, 0, 0, 0.8)] */
+    --backdrop-image: var(--background-image);
+    /* modal backdrop image (link must be HTTPS) [default: var(---background-image)] */
+    --backdrop-position: var(--background-position);
+    /* modal backdrop position [default: var(---background-position)] */
+    --backdrop-size: var(--background-size);
+    /* modal backdrop size [default: var(---background-size)] */
+    --backdrop-repeat: var(--background-repeat);
+    /* modal backdrop repeat [default: var(---background-repeat)] */
+    --backdrop-attachment: var(--background-attachment);
+    /* modal backdrop attachment [default: var(--background-attachment)] */
+    --backdrop-brightness: var(--background-brightness);
+    /* modal backdrop brightness (< 100% for darken, > 100% for lighten) [default: var(---background-brightness)] */
+    --backdrop-contrast: var(--background-contrast);
+    /* modal backdrop contrast [default: var(---background-contrast)] */
+    --backdrop-saturation: var(--background-saturation);
+    /* modal backdrop saturation [default: var(---background-saturation)] */
+    --backdrop-invert: var(--background-invert);
+    /* modal backdrop invert (0 - 100%)  [default: var(---background-invert)] */
+    --backdrop-grayscale: var(--background-grayscale);
+    /* modal backdrop grayscale ( 0 - 100%) [default: var(---background-grayscale)] */
+    --backdrop-sepia: var(--background-sepia);
+    /* modal backdrop sepia (0 - 100%) [default: var(---background-sepia)] */
+    --backdrop-blur: var(--background-blur);
+    /* modal backdrop blur [default: var(--background-blur)] */
+    /* USER POPOUT BACKGROUND */
+    --user-popout-image: var(--background-image);
+    /* app background image (link must be HTTPS) [default: var(---background-image)] */
+    --user-popout-position: var(--background-position);
+    /* user popout background position [default: var(---background-position)] */
+    --user-popout-size: var(--background-size);
+    /* user popout background size [default: var(---background-size)] */
+    --user-popout-repeat: var(--background-repeat);
+    /* user popout background repeat [default: var(---background-repeat)] */
+    --user-popout-attachment: var(--background-attachment);
+    /* user popout background attachment [default: var(--background-attachment)] */
+    --user-popout-brightness: var(--background-brightness);
+    /* user popout background brightness (< 100% for darken, > 100% for lighten) [default: var(---background-brightness)] */
+    --user-popout-contrast: var(--background-contrast);
+    /* user popout background contrast [default: var(---background-contrast)] */
+    --user-popout-saturation: var(--background-saturation);
+    /* user popout background saturation [default: var(---background-saturation)] */
+    --user-popout-invert: var(--background-invert);
+    /* user popout background invert (0 - 100%) [default: var(---background-invert)] */
+    --user-popout-grayscale: var(--background-grayscale);
+    /* user popout background grayscale (0 - 100%) [default: var(---background-grayscale)] */
+    --user-popout-sepia: var(--background-sepia);
+    /* user popout background sepia (0 - 100%) [default: var(---background-sepia)] */
+    --user-popout-blur: calc(var(--background-blur) + 3px);
+    /* user popout background blur [default: calc(var(--background-blur) + 3px)] */
+    /* USER MODAL BACKGROUND */
+    --user-modal-image: var(--background-image);
+    /* app background image (link must be HTTPS) [default: var(---background-image)] */
+    --user-modal-position: var(--background-position);
+    /* user modal background position [default: var(---background-position)] */
+    --user-modal-size: var(--background-size);
+    /* user modal background size [default: var(---background-size)] */
+    --user-modal-repeat: var(--background-repeat);
+    /* user modal background repeat [default: var(---background-repeat)] */
+    --user-modal-attachment: var(--background-attachment);
+    /* user modal background attachment [default: var(--background-attachment)] */
+    --user-modal-brightness: var(--background-brightness);
+    /* user modal background brightness (< 100% for darken, > 100% for lighten) [default: var(---background-brightness)] */
+    --user-modal-contrast: var(--background-contrast);
+    /* user modal background contrast [default: var(---background-contrast)] */
+    --user-modal-saturation: var(--background-saturation);
+    /* user modal background saturation [default: var(---background-saturation)] */
+    --user-modal-invert: var(--background-invert);
+    /* user modal background invert (0 - 100%) [default: var(---background-invert)] */
+    --user-modal-grayscale: var(--background-grayscale);
+    /* user modal background grayscale (0 - 100%) [default: var(---background-grayscale)] */
+    --user-modal-sepia: var(--background-sepia);
+    /* user modal background sepia (0 - 100%) [default: var(---background-sepia)] */
+    --user-modal-blur: calc(var(--background-blur) + 3px);
+    /* user modal background blur [default: calc(var(--background-blur) + 3px)] */
+    /* THEME BD COLORS */
+    --bd-blue: var(--main-color);
+    /* betterdiscord main color [default: var(--main-color)] */
+    --bd-blue-hover: var(--hover-color);
+    /* betterdiscord hover color [default: var(--hover-color)] */
+    --bd-blue-active: var(--hover-color);
+    /* betterdiscord active color [default: var(--hover-color)] */
+}
+
+.container-3baos1:before {
+    content: "Revtrov";
+    right: 50%;
+    text-align: right;
+    transform: translateX(50%);
+}
+
+.content-1o0f9g {
+    background: rgba(255, 255, 255, 0.4);
+    color: var(--main-color);
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.standardSidebarView-3F1I7i .sidebar-CFHs9e .side-8zPYf6 .item-PXvHYJ.selected-3s45Ha {
+    color: black !important;
+}
+
+.standardSidebarView-3F1I7i .sidebar-CFHs9e .side-8zPYf6 .item-PXvHYJ.selected-3s45Ha :after {
+    color: black !important;
+}
+
+.appMount-3lHmkl .lookFilled-1Gx00P.colorGreen-29iAKY,
+.appMount-3lHmkl .lookFilled-1Gx00P.colorBrand-3pXr91,
+.appMount-3lHmkl .lookFilled-1Gx00P.colorPrimary-3b3xI6 {
+    color: black !important;
+}
+
+.contents-18-Yxp {
+    color: black !important;
+}
+
+.autocompleteRowVertical-q1K4ky :hover .colorInteractiveActive-3Ip9Eu {
+    color: black;
+}
+
+.autocompleteRowVertical-q1K4ky :visited .colorInteractiveActive-3Ip9Eu {
+    color: black;
+}
+
+.actionIcon-PgcMM2 {
+    color: #212121;
+}
+
+.wrapper-2jXpOf.modeSelected-346R90:hover .content-1x5b-n .icon-1DeIlz>path,
+.wrapper-2jXpOf.modeSelected-346R90:hover .channelName-2YrOjO {
+    color: black;
+}
+
+.base-1pYU8j da-base selectable-3dP3y- da-selectable selected-1Tbx07 da-selected {
+    color: black;
+}
+
+.theme-dark .selected-1Tbx07 .colorInteractiveActive-3Ip9Eu {
+    color: black;
+}
+
+.container-2Pjhx-.selected-aXhQR6 .name-uJV0GL {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container-2Pjhx-.selected-aXhQR6 .activity-525YDR,
+.container-2Pjhx-.selected-aXhQR6 .subText-1KtqkB,
+.container-2Pjhx-.selected-aXhQR6 .activityText-OW8WYb,
+.container-2Pjhx-.selected-aXhQR6 .activity-2Gy-9S,
+.container-2Pjhx-.selected-aXhQR6 .activityText-yGKsKm {
+    color: black;
+}
+
+.container-1r6BKw .akaBadge-1M-1Gw {
+    color: black;
+}
+
+.wrapper-1BJsBx:hover .childWrapper-anI2G9,
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+    color: black;
+}
+
+.wrapper-1BJsBx:hover .childWrapper-anI2G9,
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+    background: black;
+}
+
+.numberBadge-2s8kKX,
+.textBadge-1iylP6 {
+    color: black;
+}
+
+.contents-18-Yxp {
+    color: white !important;
+}
+
+.buttonIcon-Od8mYw da-buttonIcon withText-10pQhr da-withText {
+    color: black;
+}
+
+.horizontal-1ae9ci {
+    color: black;
+}
+
+.iconBadge-3qSJIw.participating-1NvRVd .icon-3s6X1M {
+    color: black;
+}
+
+.unreadPill-2HyYtt {
+    color: black;
+}
+
+.circleIconButton-1QV--U:hover,
+.circleIconButton-1QV--U.selected-1JjBPm {
+    color: black;
+}
+
+.container-UC8Ug1 {
+    color: black;
+}
+
+.container-UC8Ug1 .text-1FOLJS {
+    color: black;
+}
+
+.lookFilled-1Gx00P .contents-18-Yxp,
+.lookInverted-2D7oAl .contents-18-Yxp,
+.lookLink-9FtZy- .contents-18-Yxp,
+.lookOutlined-3sRXeN .contents-18-Yxp {
+    color: black !important;
+}
+
+.wrapper-1BJsBx {
+    background-image: url("https://github.com/Revtrov/images/blob/main/valorantLogoCircle.png?raw=true");
+    background-size: cover;
+}
+
+.wrapper-1BJsBx:hover .childWrapper-anI2G9,
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+    opacity: 0;
+}
+
+.homeIcon-FuNwkv {
+    opacity: 0;
+}
+
+.typeWindows-1za-n7>.wordmark-2iDDfm:before {
+    content: "Valorant";
+}
+
+.typeWindows-1za-n7>.wordmark-2iDDfm:after {
+    content: "v3.0.0"
+}
+
+.bd-addon-list.bd-grid-view .bd-addon-card {
+    background: rgb(15, 15, 15);
+    opacity: 0.7;
+}
+
+.bd-addon-list .bd-addon-header {
+    background: black;
+}
+
+#bd-editor-controls {
+    background: rgb(15, 15, 15);
+}
+
+.monaco-editor .margin {
+    background-color: #151515;
+}
+
+.monaco-editor.no-user-select .lines-content,
+.monaco-editor.no-user-select .view-line,
+.monaco-editor.no-user-select .view-lines {
+    background: #171717;
+}
+
+.bd-addon-list .bd-addon-card {
+    background: rgb(15, 15, 15);
+    opacity: 0.7;
+}
+
+.horizontal-1ae9ci {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#bd-pub-button:hover {
+    background-color: #e73a51;
+}
+
+.appMount-3lHmkl .lookFilled-1Gx00P.colorGreen-29iAKY:hover,
+.appMount-3lHmkl .lookFilled-1Gx00P.colorGrey-2DXtkV:hover,
+.appMount-3lHmkl .lookFilled-1Gx00P.colorBrand-3pXr91:hover,
+.appMount-3lHmkl .lookFilled-1Gx00P.colorPrimary-3b3xI6:hover {
+    background-color: #982929;
+}
+
+.horizontal-1ae9ci {
+    color: rgba(255, 255, 255, 0.8)
+}
+
+.actionIcon-PgcMM2 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper-2jXpOf.modeSelected-346R90:hover .content-1x5b-n .icon-1DeIlz>path,
+.wrapper-2jXpOf.modeSelected-346R90:hover .channelName-2YrOjO {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.content-1x5b-n:hover .content-1x5b-n:after {
+    background-color: #982929;
+}
+
+.container-2Pjhx-.selected-aXhQR6 .name-uJV0GL {
+    color: #ffffffe6;
+}
+
+.standardSidebarView-3F1I7i .sidebar-CFHs9e .side-8zPYf6 .item-PXvHYJ.selected-3s45Ha {
+    color: #ffffffe6 !important;
+}
+
+.standardSidebarView-3F1I7i .sidebar-CFHs9e .side-8zPYf6 .item-PXvHYJ {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.horizontal-1ae9ci {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.bd-button {
+    background-color: #e73a51;
+}
+
+.bd-button:hover {
+    background-color: #982929;
+}
+
+#bd-editor-controls {
+    opacity: 0.7;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.monaco-editor .overflow-guard {
+    opacity: 0.7;
+}
+
+.editor {
+    background-color: #171717;
+    opacity: 0.7;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+}
+
+.monaco-editor:not(.rename-box),
+.monaco-editor .overflow-guard,
+.monaco-editor .overlayWidgets,
+#bd-customcss-editor>div>.overflow-guard>div:nth-child(3) {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.actionButton-uPB8Fs.highlight-Lf97TE,
+.actionButton-uPB8Fs:hover {
+    background-color: #e73a51;
+}
+
+.container-24CyRY {
+    background-color: none;
+}
+
+.stageSection-3mAD8V {
+    background: none !important;
+}
+
+.theme-dark .container-S9SaVf {
+    background: black !important;
+    opacity: 0.7;
+}
+
+.container-3baos1:after {
+    content: "v3.0.0";
+}
+
+::-webkit-scrollbar {
+    filter: blur(30px);
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 3px 3px 2px #982929, inset -3px -3px 2px #982929;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    outline: none;
+}
+
+::-webkit-scrollbar-thumb:after {
+    background-color: #982929 !important;
+}
+
+.modeSelected-346R90 .content-1x5b-n,
+.modeSelected-346R90:hover .content-1x5b-n {
+    background-color: #e73a51 !important;
+    box-shadow: inset 0px 3px 1px #982929, inset 0px -3px 1px #982929, inset 3px 0px 1px #982929, inset -3px 0px 1px #982929;
+    background-image: -webkit-linear-gradient(340deg, #e73a51 50%, #791313) !important;
+    border-radius: 7.5px;
+    overflow: hidden;
+    opacity: 0.9;
+}
+
+.wrapper-2jXpOf.modeSelected-346R90 .content-1x5b-n:after {
+    background-color: rgba(255, 0, 0, 0.15) !important;
+}
+
+.imageWrapper-2p5ogY img {
+    border-radius: 5px !important;
+}
+
+.container-3baos1>.flex-1O1GKY,
+.container-1giJp5>.flex-1O1GKY {
+    box-shadow: inset 0px -3px 3px #982929, inset 0px 3px 3px #982929, inset 3px 0px 3px #982929, inset -3px 0px 3px #982929;
+    background-image: -webkit-linear-gradient(340deg, #e73a51 50%, #791313) !important;
+}
+
+.button-14-BFJ {
+    height: 30px;
+}
